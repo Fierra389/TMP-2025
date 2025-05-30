@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Последние записи</h1>
+    {% for post in posts %}
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <small>Автор: {{ post.author.username }}</small>
+            {% if post.is_private %}<span>[Приватный]</span>{% endif %}
+        </article>
+        <hr>
+    {% else %}
+        <p>Нет записей</p>
+    {% endfor %}
+{% endblock %}
